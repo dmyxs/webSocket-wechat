@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>聊天室</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./lib/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="./lib/jquery.emoji.css">
+</head>
+
+<body>
+    <div class="login-box" id="login-box">
+        <div class="dd">
+            <h3>用户登录</h3>
+            <p>用户名</p>
+            <input type="text" id="input" placeholder="请输入用户名">
+            <p>选择头像</p>
+            <ul class="avatar" id="login-avatar">
+                <li class="now"><img src="./images/t1.jpeg" alt=""></li>
+                <li><img src="./images/tx123.jpg" alt=""></li>
+                <li><img src="./images/tx456.jpg" alt=""></li>
+                <li><img src="./images/t4.jpg" alt=""></li>
+                <li><img src="./images/timg.jpg" alt=""></li>
+            </ul>
+            <button class="login" id="login">登录</button>
+        </div>
+    </div>
+    <div class="container-box" id="container-box">
+        <div class='user-info'>
+            <div class="user-avatar">
+                <img class='img' src="./images/t1.jpeg" alt="">
+            </div>
+        </div>
+        <div class="user-list">
+            <div class="title">
+                <h3>用户列表</h3>
+                <hr />
+            </div>
+            <ul class="user">
+                <!-- <li>
+                    <img src="./images/t4.jpg" alt="">
+                    <p>李四</p>
+                </li>-->
+            </ul>
+        </div>
+        <div class="talk-box">
+            <div class="title">
+                <h3>前端学习交流群 (500)</h3>
+            </div>
+            <div class="show-info">
+                <!-- <div class='system'>
+                    <p class="message">
+                        <span>代码研习社 加入群聊</span>
+                    </p>
+                </div> -->
+                <!-- <div class='message-box'>
+                    <div class="wrapper">
+                        <div class="self">
+                            <img src="./images/t1.jpeg" alt="">
+                            <div class="content">
+                                <div class="bubble_cont">在干嘛</div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- <div class="message-box">
+                    <div class="other">
+                        <img src="./images/t4.jpg" alt="">
+                        <div class="content">
+                            <p>大神乔伊</p>
+                            <div class="bubble_cont">想你呀</div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+
+            <div class="input-info">
+                <div class="toolbar">
+                    <a href="javascript:;" title="表情" class="face"></a>
+                    <a href="javascript:;" title="图片" class="file">
+                        <label for="file"></label>
+                        <input type="file" id="file" style="display: none;">
+                    </a>
+                    <a href="javascript:;" title="截屏" class="cut"></a>
+                </div>
+                <div class="content">
+                    <div autofocus class="text" contenteditable></div>
+                </div>
+                <div class="action">
+                    <a href="javascript:;" class="btn-send">发送</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src='/socket.io/socket.io.js'></script>
+    <script src="./lib/jquery.min.js"></script>
+    <script src="./lib/jquery.mCustomScrollbar.min.js"></script>
+    <script src="./lib/jquery.emoji.js"></script>
+    <script src='js/index.js'></script>
+
+</body>
+
+</html>

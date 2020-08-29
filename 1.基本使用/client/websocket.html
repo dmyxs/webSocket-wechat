@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <input type="text" id="inp" placeholder="请输入内容" />
+        <button id="btn">发送</button>
+        <textarea name="" id="tt" cols="30" rows="10"></textarea>
+        <script>
+            let text = document.getElementById('tt')
+            let btn = document.getElementById('btn')
+            let input = document.getElementById('inp')
+
+            //创建对象：连接官方网站提供的服务器
+            let ws = new WebSocket('ws://localhost:8081')
+
+            //连接
+            ws.addEventListener('open', () => {
+                text.innerHTML = '连接成功'
+            })
+
+            //发送
+            btn.addEventListener('click', () => {
+                let value = input.value
+                ws.send(value)
+                input.value = ''
+            })
+
+            //接收
+            ws.addEventListener('message', (e) => {
+                text.innerHTML = e.data
+            })
+        </script>
+    </body>
+</html>

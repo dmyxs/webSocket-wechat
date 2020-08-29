@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+
+    <body>
+        哈哈
+        <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+
+        <script>
+            //连接socket服务
+            //注意：必须使用端口来访问，否则读取不到
+            let socket = io('http://localhost:8081')
+
+            //接收服务器返回的数据
+            socket.on('send', (data) => {
+                console.log(data)
+            })
+
+            //给服务器发送数据
+            socket.emit('client', {
+                name: 'hello socket',
+            })
+        </script>
+    </body>
+</html>

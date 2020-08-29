@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <input type="text" id="inp" placeholder="请输入内容" />
+        <button id="btn">发送</button>
+        <div id="div"></div>
+        <script>
+            let input = document.getElementById('inp')
+            let btn = document.getElementById('btn')
+            let div = document.getElementById('div')
+
+            //创建对象：连接官方网站提供的服务器
+            let ws = new WebSocket('ws://localhost:8081')
+
+            //连接
+            ws.addEventListener('open', () => {
+                div.innerHTML = '成功连接聊天室'
+            })
+
+            //发送
+            btn.addEventListener('click', (e) => {
+                let value = input.value
+                ws.send(value)
+                input.value = ''
+            })
+
+            //接收
+            ws.addEventListener('message', (e) => {
+                console.log(e.data)
+                let data = JSON.parse(e.data)
+                console.log(data)
+                let dv = document.createElement('div')
+                dv.innerText = data.msg + ' ' + data.time
+                if (data.type === 0) {
+                    dv.style.color = 'green'
+                } else if (data.type === 1) {
+                    dv.style.color = 'red'
+                } else {
+                    dv.style.color = 'black'
+                }
+
+                div.appendChild(dv)
+            })
+        </script>
+    </body>
+</html>
